@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amen Barvaz Selley</title>
     <style>
-        /* Reset margins and make the page fill the entire screen */
         * {
             margin: 0;
             padding: 0;
@@ -19,38 +18,57 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
+            position: relative;
             transition: background-color 0.1s ease;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
+        /* This creates the photo container behind the text */
+        .background-photo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Loads your uploaded photo */
+            background-image: url('amen.jpg'); 
+            background-size: cover;
+            background-position: center;
+            z-index: 1; /* Keeps it behind the text */
+        }
+
         h1 {
-            color: black;
+            /* Changed to apple green color */
+            color: #8db600; 
             font-size: 4rem;
-            /* This gives it that "rail thin" look */
             font-weight: 100; 
             letter-spacing: 0.3em;
             text-transform: uppercase;
             user-select: none;
+            position: relative;
+            z-index: 2; /* Keeps the text in front of the photo */
         }
 
-        /* This utility class will be triggered by JavaScript */
+        /* What happens when you press F */
         body.activated {
             background-color: red;
         }
         
-        body.activated h1 {
+        /* This hides both the text AND the background photo instantly */
+        body.activated h1, 
+        body.activated .background-photo {
             display: none;
         }
     </style>
 </head>
 <body>
 
+    <div class="background-photo"></div>
+
     <h1 id="text">AMEN BARVAZ SELLEY</h1>
 
     <script>
-        // Listen for keyboard presses on the window
         window.addEventListener('keydown', function(event) {
-            // Check if the key pressed is 'f' or 'F'
             if (event.key === 'f' || event.key === 'F') {
                 document.body.classList.add('activated');
             }
