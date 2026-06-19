@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smara / Laayoune / Dakhla</title>
+    <style>
+        /* Minimalist Reset & Aesthetics */
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-weight: 200; /* Slim font weight */
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Text Container */
+        .content-container {
+            margin-bottom: 50px;
+            max-width: 600px;
+        }
+
+        .title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            letter-spacing: 0.5px;
+        }
+
+        /* Button Container */
+        .controls {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Base Circle Style */
+        .btn-circle {
+            width: 60px;
+            height: 60px;
+            border: 1px solid #000000;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            transition: opacity 0.2s ease;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .btn-circle:hover {
+            opacity: 0.6;
+        }
+
+        /* Left Button: Rudimentary Monochrome Union Jack */
+        .union-jack {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        /* Crosses */
+        .union-jack::before, .union-jack::after {
+            content: '';
+            position: absolute;
+            background: #000000;
+        }
+        /* Vertical bar */
+        .union-jack::before {
+            top: 0; left: 50%; width: 2px; height: 100%;
+            transform: translateX(-50%);
+        }
+        /* Horizontal bar */
+        .union-jack::after {
+            top: 50%; left: 0; width: 100%; height: 2px;
+            transform: translateY(-50%);
+        }
+        /* Diagonals */
+        .diagonals {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .diagonals::before, .diagonals::after {
+            content: '';
+            position: absolute;
+            background: #000000;
+            top: 50%; left: 10%;
+            width: 80%; height: 1px;
+        }
+        .diagonals::before { transform: rotate(45deg); }
+        .diagonals::after { transform: rotate(-45deg); }
+
+
+        /* Right Button: Cantonese Character */
+        .cantonese-text {
+            font-size: 1.6rem;
+            font-weight: 300;
+            font-family: "PingFang HK", "Heiti TC", sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content-container">
+        <div id="main-title" class="title">Smara / Laayoune / Dakhla</div>
+        <div id="main-subtitle" class="subtitle">Cat shaped buildings - Sahrawi public housing - under demolition; cats; a midget in Morocco-stricken Western Sahara.</div>
+    </div>
+
+    <div class="controls">
+        <!-- English Button -->
+        <button class="btn-circle" onclick="switchLanguage('en')" aria-label="Switch to English">
+            <div class="union-jack">
+                <div class="diagonals"></div>
+            </div>
+        </button>
+
+        <!-- Cantonese Button -->
+        <button class="btn-circle" onclick="switchLanguage('zh-hk')" aria-label="Switch to Cantonese">
+            <span class="cantonese-text">粵</span>
+        </button>
+    </div>
+
+    <script>
+        // Language Database
+        const translations = {
+            'en': {
+                title: "Smara / Laayoune / Dakhla",
+                subtitle: "Cat shaped buildings - Sahrawi public housing - under demolition; cats; a midget in Morocco-stricken Western Sahara."
+            },
+            'zh-hk': {
+                title: "斯馬拉 / 阿尤恩 / 達赫拉",
+                // Direct translation into natural, heavy HK slang/colloquialisms:
+                // 貓樣房屋 -> cat-shaped buildings
+                // 撒哈拉人公屋 -> Sahrawi public housing
+                // 拆緊/拆卸中 -> under demolition
+                // 貓不特止 -> cats; plus
+                // 俾摩洛哥隊到個樣一鑊泡嘅西撒哈拉入面嘅一條矮仔 -> a midget in Morocco-stricken Western Sahara
+                subtitle: "貓樣房屋 — 撒哈拉人公屋 — 拆緊；貓；喺俾摩洛哥隊到鑊鑊甘嘅西撒哈拉入面一個矮仔。"
+            }
+        };
+
+        function switchLanguage(lang) {
+            document.getElementById('main-title').textContent = translations[lang].title;
+            document.getElementById('main-subtitle').textContent = translations[lang].subtitle;
+        }
+    </script>
+
+</body>
+</html>
