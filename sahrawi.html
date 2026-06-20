@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smara / Laayoune / Dakhla</title>
+    <title>Document</title>
     <style>
         /* Minimalist Reset & Aesthetics */
         body {
@@ -21,20 +21,17 @@
 
         /* Text Container */
         .content-container {
-            margin-bottom: 50px;
-            max-width: 600px;
+            margin-bottom: 40px;
+            max-width: 750px;
+            text-align: justify; /* Justified for an intense, block-like text appearance */
+            text-justify: inter-word;
+            line-height: 1.7;
         }
 
-        .title {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            line-height: 1.6;
+        .main-text {
+            font-size: 1.05rem;
             letter-spacing: 0.5px;
+            word-break: break-word;
         }
 
         /* Button Container */
@@ -43,6 +40,7 @@
             gap: 30px;
             justify-content: center;
             align-items: center;
+            margin-bottom: 50px;
         }
 
         /* Base Circle Style */
@@ -71,23 +69,19 @@
             width: 100%;
             height: 100%;
         }
-        /* Crosses */
         .union-jack::before, .union-jack::after {
             content: '';
             position: absolute;
             background: #000000;
         }
-        /* Vertical bar */
         .union-jack::before {
             top: 0; left: 50%; width: 2px; height: 100%;
             transform: translateX(-50%);
         }
-        /* Horizontal bar */
         .union-jack::after {
             top: 50%; left: 0; width: 100%; height: 2px;
             transform: translateY(-50%);
         }
-        /* Diagonals */
         .diagonals {
             position: absolute;
             width: 100%;
@@ -103,20 +97,29 @@
         .diagonals::before { transform: rotate(45deg); }
         .diagonals::after { transform: rotate(-45deg); }
 
-
         /* Right Button: Cantonese Character */
         .cantonese-text {
             font-size: 1.6rem;
             font-weight: 300;
             font-family: "PingFang HK", "Heiti TC", sans-serif;
         }
+
+        /* Image Styling */
+        .display-image {
+            max-width: 100%;
+            width: 600px;
+            height: auto;
+            border: none;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
 
     <div class="content-container">
-        <div id="main-title" class="title">Smara / Laayoune / Dakhla</div>
-        <div id="main-subtitle" class="subtitle">Cat shaped buildings - Sahrawi public housing - under demolition; cats; a midget in Morocco-stricken Western Sahara.</div>
+        <div id="text-display" class="main-text">
+            At a safe distance from the berm and landmines I was nevertheless threatened at gunpoint for photographing cat shaped homes (apparently Sahrawi public housing) and cats and a ritualistic drawing. In my hotel room which I barricaded I watched a bearded Dutch member of parliament being questioned by an interviewer on the region but I was there and I realized their timeframe was about 20 years into the past; in the meantime through recognizing Israel (w) Morocco had received formal sovereignty over Western Sahara (l) and all that remained were settled military colonies and their surveyors and a transient population of Sahrawis and Senegalese living in the landfills between the airbnb's in Dakhla which is a hub in the drug trade and human trafficking industry that supplies the Netherlands. We talk about it every day but we don't know where it comes from. Either way, ~ for me it was more of a religious experience because I encountered a dying kitten that was for the first time accompanied by its parent. I was able to empathize with them from a distance and take this feeling with me.
+        </div>
     </div>
 
     <div class="controls">
@@ -133,28 +136,18 @@
         </button>
     </div>
 
+    <!-- Image Placeholder -->
+    <img src="image1.jpg" alt="Uploaded Content" class="display-image">
+
     <script>
-        // Language Database
         const translations = {
-            'en': {
-                title: "Smara / Laayoune / Dakhla",
-                subtitle: "Cat shaped buildings - Sahrawi public housing - under demolition; cats; a midget in Morocco-stricken Western Sahara."
-            },
-            'zh-hk': {
-                title: "斯馬拉 / 阿尤恩 / 達赫拉",
-                // Direct translation into natural, heavy HK slang/colloquialisms:
-                // 貓樣房屋 -> cat-shaped buildings
-                // 撒哈拉人公屋 -> Sahrawi public housing
-                // 拆緊/拆卸中 -> under demolition
-                // 貓不特止 -> cats; plus
-                // 俾摩洛哥隊到個樣一鑊泡嘅西撒哈拉入面嘅一條矮仔 -> a midget in Morocco-stricken Western Sahara
-                subtitle: "貓樣房屋 — 撒哈拉人公屋 — 拆緊；貓；喺俾摩洛哥隊到鑊鑊甘嘅西撒哈拉入面一個矮仔。"
-            }
+            'en': `At a safe distance from the berm and landmines I was nevertheless threatened at gunpoint for photographing cat shaped homes (apparently Sahrawi public housing) and cats and a ritualistic drawing. In my hotel room which I barricaded I watched a bearded Dutch member of parliament being questioned by an interviewer on the region but I was there and I realized their timeframe was about 20 years into the past; in the meantime through recognizing Israel (w) Morocco had received formal sovereignty over Western Sahara (l) and all that remained were settled military colonies and their surveyors and a transient population of Sahrawis and Senegalese living in the landfills between the airbnb's in Dakhla which is a hub in the drug trade and human trafficking industry that supplies the Netherlands. We talk about it every day but we don't know where it comes from. Either way, ~ for me it was more of a religious experience because I encountered a dying kitten that was for the first time accompanied by its parent. I was able to empathize with them from a distance and take this feeling with me.`,
+            
+            'zh-hk': `明明已經隔撚開咗段防衛牆同埋啲仆街地雷，保持安全距離，但我只不過係影下啲貓樣房屋（好似係撒哈拉人公屋）、幾隻貓同埋一幅唔知想點嘅儀式壁畫，就俾人搵支槍指撚住嚟恐嚇。屌你老味，我返到酒店房即刻搵嘢頂死道門，縮喺入面，睇住電視有個留住鬚嘅荷蘭國會議員戇鳩鳩接受訪問講呢個地區，但係我身處現場，我一睇就知佢哋嘅認知仲停留喺二十年前嘅時空；喺呢段時間，因為承認咗以色列（贏），摩洛哥已經攞到西撒哈拉嘅主權（輸），依家剩低嘅就只有軍事殖民地、啲死人精算精確嘅精算測量師，同埋喺達赫拉一堆 Airbnb 罅隙之間嘅垃圾堆填區入面苟延殘喘嘅撒哈拉人同塞內加爾流動人口。達赫拉呢個地方，直情係供應荷蘭毒品買賣同人口販賣產業嘅中轉核心樞紐。我哋日日喺度講，但根本無人知啲嘢從何而來。不過點都好，~ 對我嚟講，呢次更似一場宗教體驗，因為我遇到一隻就死嘅中風小貓，而最震撼嘅係第一次有佢老竇老母陪喺身邊。我能夠喺一段距離外，同牠們產生一種共鳴，並將呢種感覺銘記於心。`
         };
 
         function switchLanguage(lang) {
-            document.getElementById('main-title').textContent = translations[lang].title;
-            document.getElementById('main-subtitle').textContent = translations[lang].subtitle;
+            document.getElementById('text-display').textContent = translations[lang];
         }
     </script>
 
